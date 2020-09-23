@@ -38,7 +38,7 @@ io.on('connection', socket=> {
             values.forEach(value=>{
                 if (value.code===message.target)
                     console.log(`client send message type answer target ${message.target}` )
-                socket.to(value.id).emit('recAnswer',{teacherCode : message.name, studentCode : message.target, type :message.type, sdp : message.sdp})
+                socket.to(value.id).emit('recAnswer',{teacherCode : message.target, studentCode : message.name, type :message.type, sdp : message.sdp})
             })
         }else if (message.type ==='candidate'){
             console.log(`client send message type candidate target ${message.target}`)
